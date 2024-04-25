@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 // POST route to handle form submission
 
 app.listen(process.env.PORT, () => {
-  console.log(`Server Is Running Now ${PORT}`);
+  console.log(`Server Is Running Now ${process.env.PORT}`);
 
   app.post("/test", (req, res) => {
     res.send("Response from /test endpoint");
