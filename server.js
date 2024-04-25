@@ -25,6 +25,7 @@ app.listen(process.env.PORT, () => {
   console.log(`Server Is Running Now`);
   app.post("/send-email", (req, res) => {
     const { username, email, phone, service } = req.body;
+    res.send("Hello World");
 
     const transporter = nodemailer.createTransport({
       service: "Gmail", // Update with your email service provider
