@@ -22,16 +22,6 @@ app.use((req, res, next) => {
 
 app.listen(process.env.PORT, () => {
   console.log(`Server Is Running Now ${process.env.PORT}`);
-  console.log(process.env.EMAIL_USER);
-  console.log(process.env.EMAIL_PASS);
-
-  // app.get("/", (req, res) => {
-  //   res.send("Home end Point");
-  // });
-
-  // app.get("/test", (req, res) => {
-  //   res.send("Hello from the test endpoint");
-  // });
 
   app.post("/send-email", (req, res) => {
     const { username, email, phone, service } = req.body;
