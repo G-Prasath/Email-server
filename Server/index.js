@@ -25,8 +25,18 @@ app.listen(process.env.PORT, () => {
   console.log(process.env.EMAIL_USER);
   console.log(process.env.EMAIL_PASS);
 
+  // app.get("/", (req, res) => {
+  //   res.send("Home end Point");
+  // });
+
+  // app.get("/test", (req, res) => {
+  //   res.send("Hello from the test endpoint");
+  // });
+
   app.post("/send-email", (req, res) => {
     const { username, email, phone, service } = req.body;
+    res.send("Hello World");
+    console.log("Inside send-email");
 
     const transporter = nodemailer.createTransport({
       service: "Gmail", // Update with your email service provider
@@ -59,7 +69,7 @@ app.listen(process.env.PORT, () => {
   `;
 
     const mailOptions = {
-      from: email,
+      from: "estarinfra.com",
       to: process.env.EMAIL_USER,
       subject: "PEB Enquiry Quote",
       html: htmlContent,
