@@ -59,7 +59,7 @@ app.listen(process.env.PORT, () => {
   `;
 
     const mailOptions = {
-      from: username,
+      from: process.env.EMAIL_USER,
       // to: process.env.EMAIL_USER,
       to: "muthamizhvendhan66@gmail.com",
       subject: "PEB Enquiry Quote",
