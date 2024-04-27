@@ -69,7 +69,7 @@ app.listen(process.env.PORT, () => {
   `;
 
     const mailOptions = {
-      from: email,
+      from: estarinfra.com,
       to: process.env.EMAIL_USER,
       subject: "PEB Enquiry Quote",
       html: htmlContent,
