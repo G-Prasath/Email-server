@@ -25,18 +25,8 @@ app.listen(process.env.PORT, () => {
   console.log(process.env.EMAIL_USER);
   console.log(process.env.EMAIL_PASS);
 
-  // app.get("/", (req, res) => {
-  //   res.send("Home end Point");
-  // });
-
-  // app.get("/test", (req, res) => {
-  //   res.send("Hello from the test endpoint");
-  // });
-
   app.post("/send-email", (req, res) => {
     const { username, email, phone, service } = req.body;
-    res.send("Hello World");
-    console.log("Inside send-email");
 
     const transporter = nodemailer.createTransport({
       service: "Gmail", // Update with your email service provider
@@ -71,7 +61,7 @@ app.listen(process.env.PORT, () => {
     const mailOptions = {
       from: username,
       // to: process.env.EMAIL_USER,
-      to: "muthamizhvendhan66@gmail.com"
+      to: "muthamizhvendhan66@gmail.com",
       subject: "PEB Enquiry Quote",
       html: htmlContent,
     };
