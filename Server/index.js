@@ -24,9 +24,8 @@ app.listen(process.env.PORT, () => {
   console.log(`Server Is Running Now ${process.env.PORT}`);
 
   app.post("/send-email", (req, res) => {
-    const { username, email, phone, service } = req.body;
+    const { username, email, phone, service, toAddr, mailHeading } = req.body;
     res.send("Hello World");
-    console.log("Inside send-email");
 
     const transporter = nodemailer.createTransport({
       service: "Gmail", // Update with your email service provider
@@ -37,7 +36,7 @@ app.listen(process.env.PORT, () => {
     });
 
     const htmlContent = `
-    <h2>Request for this Client</h2>
+    <h2>${mailmailHeading} Request for this Client</h2>
     <table border="1" cellpadding="5" cellspacing="0">
       <tr>
         <td><strong>Name:</strong></td>
@@ -60,8 +59,8 @@ app.listen(process.env.PORT, () => {
 
     const mailOptions = {
       from: "estarinfra.com",
-      to: process.env.EMAIL_USER,
-      subject: "Enquiry Quote",
+      to: toAddr,
+      subject: `${mailHeading} Enquiry Quote`,
       html: htmlContent,
     };
 
