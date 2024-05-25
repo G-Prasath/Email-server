@@ -26,7 +26,7 @@ app.listen(process.env.PORT, () => {
   app.post("/send-email", (req, res) => {
     const { username, email, phone, service, toAddr, mailHeading } = req.body;
     res.send("Hello World");
-
+    res.send(req.body);
     const transporter = nodemailer.createTransport({
       service: "Gmail", // Update with your email service provider
       auth: {
